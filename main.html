@@ -1,0 +1,45 @@
+<html lang="ru">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Food</title>
+</head>
+
+
+
+
+<body>
+<div class="left-menu">
+    <div class="col-md-3 col-sm-3 col-xs-6">
+        <a href="#" class="btn btn-sm animated-button victoria-two">Menu</a>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-6">
+        <a href="#" class="btn btn-sm animated-button victoria-two">sign in</a>
+    </div>
+</div>
+
+<div id="map">
+<p>map</p>
+</div>
+
+<script>
+    function initMap(listener) {
+        var element = document.getElementById('map');
+        var options = {
+            zoom: 13,
+            center: {lat: 50.45466, lng: 30.5238},
+        };
+        var myMap = new google.maps.Map(element, options);
+        var marker = new google.maps.Marker({position : {lat : 50.387560,lng:30.46084}, map : myMap});
+        var InfoWindow = new google.maps.InfoWindow({content: ""});
+
+        marker.addListener('click', function () {
+            InfoWindow.open(myMap, marker);
+        })
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHEfnybD_RS8dpXvwajl5i_KQjo-DN1es&callback=initMap">
+</script>
+</body>
+</html>
