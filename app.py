@@ -5,7 +5,7 @@ import bcrypt
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'mongologinexample'
-app.config['MONGO_URI'] = 'mongodb://pretty:printed@ds021731.mlab.com:21731/mongologinexample'
+app.config['MONGO_URI'] = 'mongodb+srv://new-user_31:mongo625@firstcluster0-1vctv.mongodb.net/test?retryWrites=true'
 
 mongo = PyMongo(app)
 
@@ -21,11 +21,10 @@ def index():
 @app.route('/login', methods=['POST'])
 def login():
     users = mongo.db.users
-    login_user = users.find_one({'name': request.form['username']})
+    login_user = users.find_one({'name' : request.form['username']})
 
     if login_user:
-        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user[
-            'password'].encode('utf-8'):
+        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
             session['username'] = request.form['username']
             return redirect(url_for('index'))
 
