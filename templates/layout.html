@@ -10,11 +10,11 @@
 
 <body>
 <div class="left-menu">
-     {% if 'username' in session: %}
+     {% if 'username' in session %}
     {{  'You are logged in as ' + session['username'] }}
         {% endif %}
     <div class="col-md-3 col-sm-3 col-xs-6">
-        <a href="{{ url_for('index')}}" class="btn btn-sm animated-button victoria-two">Main</a>
+        <a href="{{ url_for('main')}}" class="btn btn-sm animated-button victoria-two">Main</a>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-6">
         <a href="{{ url_for('login')}}" class="btn btn-sm animated-button victoria-two">Login</a>
