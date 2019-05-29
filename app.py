@@ -15,10 +15,6 @@ app.config['MONGO_URI'] = 'mongodb+srv://new-user_31:mongo625@firstcluster0-1vct
 mongo = PyMongo(app)
 
 @app.route('/')
-def index():
-    if 'username' in session:
-        return 'You are logged in as ' + session['username']
-
     return render_template('main.html')
 
 
